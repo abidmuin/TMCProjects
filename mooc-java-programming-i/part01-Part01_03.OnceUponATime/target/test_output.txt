@@ -1,0 +1,1 @@
+[{"className":"OnceUponATimeTest","methodName":"correctOutput","pointNames":["01-03"],"status":"PASSED"},{"className":"OnceUponATimeTest","methodName":"numberOfSystemOutPrintlnCommands","pointNames":["01-03"],"status":"PASSED"}]
