@@ -20,5 +20,6 @@ public class Story {
 		System.out.println("On the way to work, " + characterName + " reflected on life.");
 		System.out.println("Perhaps " + characterName + " will not be " + jobName + " forever.");
 
+		scanner.close();
 	}
 }
