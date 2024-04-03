@@ -10,8 +10,8 @@ public class Message {
 		// Write your program here
 
 		String message = scanner.nextLine();
-
 		System.out.println(message);
 
+		scanner.close();
 	}
 }
