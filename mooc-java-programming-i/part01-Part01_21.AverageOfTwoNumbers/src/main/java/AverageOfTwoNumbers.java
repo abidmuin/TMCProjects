@@ -7,6 +7,6 @@ public class AverageOfTwoNumbers {
         Scanner scanner = new Scanner(System.in);
 
         // Write your program here
-
+		scanner.close();
     }
 }
