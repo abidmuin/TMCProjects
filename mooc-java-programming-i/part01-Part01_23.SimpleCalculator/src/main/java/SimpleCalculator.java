@@ -16,7 +16,7 @@ public class SimpleCalculator {
 		System.out.println(firstNumber + " + " + secondNumber + " = " + (firstNumber + secondNumber));
 		System.out.println(firstNumber + " - " + secondNumber + " = " + (firstNumber - secondNumber));
 		System.out.println(firstNumber + " * " + secondNumber + " = " + (firstNumber * secondNumber));
-		System.out.println(firstNumber + " / " + secondNumber + " = " + (firstNumber / secondNumber) * 1.0);
+		System.out.println(firstNumber + " / " + secondNumber + " = " + (Double.valueOf(firstNumber) / secondNumber));
 
 		scanner.close();
 
