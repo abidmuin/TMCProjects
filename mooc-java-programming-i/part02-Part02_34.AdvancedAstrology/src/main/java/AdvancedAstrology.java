@@ -34,9 +34,13 @@ public class AdvancedAstrology {
 		for (int i = 1; i <= height; i++) {
 			// left side pyramid
 			printSpaces(height - i);
-			printStars(i);
+			printStars((2 * i) - 1);
 		}
 
+		for (int i = 0; i < 2; i++) {
+			printSpaces(height - 2);
+			printStars(3);
+		}
 	}
 
 	public static void main(String[] args) {
