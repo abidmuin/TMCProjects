@@ -18,5 +18,6 @@ public class IoobProgram {
             System.out.println(line);
         }
 
+		System.out.println(lines.get(lines.size()));
     }
 }
