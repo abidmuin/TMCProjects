@@ -17,5 +17,8 @@ public class ListSize {
             list.add(input);
         }
 
+		System.out.println("In total: " + list.size());
+
+		scanner.close();
     }
 }
