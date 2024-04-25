@@ -4,21 +4,27 @@ import java.util.Scanner;
 
 public class SumOfAList {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
 
-        ArrayList<Integer> list = new ArrayList<>();
-        while (true) {
-            int input = Integer.valueOf(scanner.nextLine());
-            if (input == -1) {
-                break;
-            }
+		ArrayList<Integer> list = new ArrayList<>();
+		int totalValue = 0;
 
-            list.add(input);
-        }
+		while (true) {
+			int input = Integer.valueOf(scanner.nextLine());
 
-        System.out.println("");
+			if (input == -1) {
+				break;
+			}
 
-        // toteuta listan lukujen summan laskeminen tänne
-    }
+			list.add(input);
+			totalValue += input;
+		}
+
+		System.out.println("");
+
+		// toteuta listan lukujen summan laskeminen tänne
+		System.out.println("Sum: " + totalValue);
+		scanner.close();
+	}
 }
