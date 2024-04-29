@@ -17,11 +17,14 @@ public class LineByLine {
 				break;
 			}
 
-			arrayWords = userInput.split(" ");
+			sentence += userInput + " ";
+		}
 
-			for (String word : arrayWords) {
-				System.out.println(word);
-			}
+		sentence.trim();
+		arrayWords = sentence.split(" ");
+
+		for (String word : arrayWords) {
+			System.out.println(word);
 		}
 
 		scanner.close();
