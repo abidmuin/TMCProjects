@@ -14,7 +14,3 @@ jobs:
 
       - name: Merge pull request
         uses: pascalgn/automerge-action@v0.13.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_LABELS: "dependencies"
-          MERGE_METHOD: "merge"
