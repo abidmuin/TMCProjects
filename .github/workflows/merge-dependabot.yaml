@@ -1,0 +1,20 @@
+name: Merge Dependabot Pull Requests
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Merge pull request
+        uses: pascalgn/automerge-action@v0.13.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_LABELS: "dependencies"
+          MERGE_METHOD: "merge"
