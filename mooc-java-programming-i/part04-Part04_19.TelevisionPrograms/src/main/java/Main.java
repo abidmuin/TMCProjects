@@ -28,7 +28,7 @@ public class Main {
 
 		for (TelevisionProgram televisionProgram : programs) {
 			if (televisionProgram.getDuration() <= duration) {
-				System.out.print(televisionProgram.getName() + ", " + televisionProgram.getDuration() + " minutes");
+				System.out.print(televisionProgram.toString());
 			}
 		}
 		scanner.close();
