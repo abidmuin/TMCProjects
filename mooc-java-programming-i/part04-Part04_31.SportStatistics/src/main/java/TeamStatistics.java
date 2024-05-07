@@ -17,10 +17,6 @@ public class TeamStatistics {
 		this.lossCount++;
 	}
 
-	public String getName() {
-		return this.teamName;
-	}
-
 	public int getWin() {
 		return this.winCount;
 	}
