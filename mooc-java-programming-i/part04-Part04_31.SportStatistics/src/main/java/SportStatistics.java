@@ -70,7 +70,7 @@ public class SportStatistics {
         if (teamStatsForTeam != null) {
             System.out.println(teamStatsForTeam);
         } else {
-            System.out.println("No statistics found for the team: " + teamName);
+            System.out.println("Games: " + 0);
         }
 
 //        System.out.println(teamStats.get(teamName).toString());
