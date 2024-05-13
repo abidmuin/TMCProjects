@@ -1,4 +1,3 @@
-
 public class Book {
 
     private String name;
@@ -16,5 +15,4 @@ public class Book {
     public int getPublicationYear() {
         return publicationYear;
     }
-
 }

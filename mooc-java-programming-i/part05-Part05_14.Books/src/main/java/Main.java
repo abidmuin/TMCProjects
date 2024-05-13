@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,10 +17,22 @@ public class Main {
             System.out.println("Publication year:");
             int publicationYear = Integer.valueOf(scanner.nextLine());
             Book book = new Book(name, publicationYear);
-            books.add(book);
+            boolean doesExist = false;
 
+            for (Book oldBook : books) {
+                if ((oldBook.getPublicationYear() == publicationYear) && (oldBook.getName().equals(name))) {
+                    doesExist = true;
+                    break;
+                }
+            }
+
+            if (!doesExist) {
+                books.add(book);
+            }
         }
-        
+
+        scanner.close();
+
         // NB! Don't alter the line below!
         System.out.println("Thank you! Books added: " + books.size());
     }
