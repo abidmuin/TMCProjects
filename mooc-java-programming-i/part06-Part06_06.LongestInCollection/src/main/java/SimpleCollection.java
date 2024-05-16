@@ -1,10 +1,9 @@
-
 import java.util.ArrayList;
 
 public class SimpleCollection {
 
-    private String name;
-    private ArrayList<String> elements;
+    private final String name;
+    private final ArrayList<String> elements;
 
     public SimpleCollection(String name) {
         this.name = name;
@@ -19,4 +18,21 @@ public class SimpleCollection {
         return this.elements;
     }
 
+    public String longest() {
+        if (this.elements.isEmpty()) {
+            return null;
+        }
+
+        int maxSize = Integer.MIN_VALUE;
+        String maxElement = null;
+
+        for (String element : this.elements) {
+            if (element.length() > maxSize) {
+                maxSize = element.length();
+                maxElement = element;
+            }
+        }
+
+        return maxElement;
+    }
 }
