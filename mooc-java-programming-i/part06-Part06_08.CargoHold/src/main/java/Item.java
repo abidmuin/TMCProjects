@@ -1,22 +1,22 @@
 public class Item {
-	private final String name;
-	private final int weight;
+    private final String name;
+    private final int weight;
 
-	public Item(String name, int weight) {
-		this.name = name;
-		this.weight = weight;
-	}
+    public Item(String name, int weight) {
+        this.name = name;
+        this.weight = weight;
+    }
 
-	public String getName() {
-		return this.name;
-	}
+    public String getName() {
+        return this.name;
+    }
 
-	public int getWeight() {
-		return this.weight;
-	}
+    public int getWeight() {
+        return this.weight;
+    }
 
-	@Override
-	public String toString() {
-		return "name" + name + " (" + weight + " kg)";
-	}
+    @Override
+    public String toString() {
+        return name + " (" + weight + " kg)";
+    }
 }
