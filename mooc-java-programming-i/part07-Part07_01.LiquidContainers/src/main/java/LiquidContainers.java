@@ -55,6 +55,7 @@ public class LiquidContainers {
 					}
 					break;
 				case "remove":
+					// Remove is only for second container
 					if (amount > 0) {
 						if (secondContainer >= amount) {
 							secondContainer -= amount;
