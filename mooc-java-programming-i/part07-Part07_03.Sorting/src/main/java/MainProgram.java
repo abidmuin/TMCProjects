@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MainProgram {
 
 	public static void main(String[] args) {
@@ -51,9 +53,16 @@ public class MainProgram {
 
 	// Part 03
 	public static int indexOfSmallestFrom(int[] table, int startIndex) {
+		int smallestNumber = smallest(Arrays.copyOfRange(table, startIndex, table.length));
+		int index = startIndex;
 
-		return 1;
+		for (int i = startIndex; i < table.length; i++) {
+			if (table[i] == smallestNumber) {
+				index = i;
+			}
+		}
 
+		return index;
 	}
 
 }
