@@ -4,7 +4,7 @@ public class MainProgram {
 
 	public static void main(String[] args) {
 		// write your test code here
-		int[] array = {3, 1, 5, 99, 3, 12};
+//		int[] array = {3, 1, 5, 99, 3, 12};
 
 		// Part 01
 //		int[] numbers = {6, 5, 8, 7, 11};
@@ -17,10 +17,22 @@ public class MainProgram {
 
 		// Part 03
 		// indices:       0  1  2  3   4
-		int[] numbers = {-1, 6, 9, 8, 12};
-		System.out.println(MainProgram.indexOfSmallestFrom(numbers, 0));
-		System.out.println(MainProgram.indexOfSmallestFrom(numbers, 1));
-		System.out.println(MainProgram.indexOfSmallestFrom(numbers, 2));
+//		int[] numbers = {-1, 6, 9, 8, 12};
+//		System.out.println(MainProgram.indexOfSmallestFrom(numbers, 0));
+//		System.out.println(MainProgram.indexOfSmallestFrom(numbers, 1));
+//		System.out.println(MainProgram.indexOfSmallestFrom(numbers, 2));
+
+		// Part 04
+//		int[] numbers = {3, 2, 5, 4, 8};
+//		System.out.println(Arrays.toString(numbers));
+//		MainProgram.swap(numbers, 1, 0);
+//		System.out.println(Arrays.toString(numbers));
+//		MainProgram.swap(numbers, 0, 3);
+//		System.out.println(Arrays.toString(numbers));
+
+		// Part 05
+		int[] numbers = {8, 3, 7, 9, 1, 2, 4};
+		MainProgram.sort(numbers);
 	}
 
 	// Part 01
@@ -63,6 +75,32 @@ public class MainProgram {
 		}
 
 		return index;
+	}
+
+	// Part 04
+	public static void swap(int[] array, int index1, int index2) {
+		int num1 = array[index1];
+		int num2 = array[index2];
+
+		num1 = num1 ^ num2;
+		num2 = num1 ^ num2;
+		num1 = num1 ^ num2;
+
+		array[index1] = num1;
+		array[index2] = num2;
+	}
+
+	// Part 05
+	public static void sort(int[] array) {
+		// Selection Sort
+		for (int i = 0; i < array.length - 1; i++) {
+			for (int j = i + 1; j < array.length; j++) {
+				if (array[i] > array[j]) {
+					swap(array, i, j);
+				}
+			}
+			System.out.println(Arrays.toString(array));
+		}
 	}
 
 }
