@@ -31,17 +31,17 @@ public class MainProgram {
 //		System.out.println(Arrays.toString(numbers));
 
 		// Part 05
-		int[] numbers = {8, 3, 7, 9, 1, 2, 4};
-		MainProgram.sort(numbers);
+//		int[] numbers = {8, 3, 7, 9, 1, 2, 4};
+//		MainProgram.sort(numbers);
 	}
 
 	// Part 01
 	public static int smallest(int[] array) {
-		int smallest = array[0];
+		int smallest = Integer.MAX_VALUE;
 
-		for (int i = 0; i < array.length - 1; i++) {
-			if (array[i] < smallest) {
-				smallest = array[i];
+		for (int num : array) {
+			if (num < smallest) {
+				smallest = num;
 			}
 		}
 
