@@ -9,7 +9,7 @@ public class Main {
 		// Write your program here -- consider breaking the program into
 		// multiple classes.
 
-		pointAverage(scanner);
+		pointStatistics(scanner);
 	}
 
 	public static boolean validPoint(int point) {
@@ -20,7 +20,7 @@ public class Main {
 		return (point >= 50 && point <= 100);
 	}
 
-	public static void pointAverage(Scanner scanner) {
+	public static void pointStatistics(Scanner scanner) {
 		int totalPoints = 0;
 		int counterPoints = 0;
 		double averagePoints;
