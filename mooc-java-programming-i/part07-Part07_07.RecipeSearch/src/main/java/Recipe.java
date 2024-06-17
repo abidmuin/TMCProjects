@@ -1,9 +1,9 @@
 import java.util.List;
 
 public class Recipe {
-	private String name;
-	private int cookingTime;
-	private List<String> ingredients;
+	private final String name;
+	private final int cookingTime;
+	private final List<String> ingredients;
 
 	public Recipe(String name, int cookingTime, List<String> ingredients) {
 		this.name = name;
@@ -25,6 +25,6 @@ public class Recipe {
 
 	@Override
 	public String toString() {
-		return "Recipe name=" + name + ", cookingTime=" + cookingTime;
+		return name + ", cooking time: " + cookingTime;
 	}
 }

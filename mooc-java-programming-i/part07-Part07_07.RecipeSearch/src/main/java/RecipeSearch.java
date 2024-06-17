@@ -1,8 +1,5 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.Scanner;
 
 public class RecipeSearch {
@@ -14,6 +11,15 @@ public class RecipeSearch {
 		String filename = scanner.nextLine();
 //		String filename = "recipes.txt";
 
+		List<Recipe> recipes;
+		try {
+			recipes = RecipeReader.readRecipes(filename);
+		} catch (IOException e) {
+			System.out.println("Error: " + e.getMessage());
+			return;
+		}
+
+
 		System.out.println();
 		System.out.println("Commands:");
 		System.out.println("list - lists the recipes");
@@ -23,16 +29,24 @@ public class RecipeSearch {
 //		System.out.println("find ingredient - searches recipes by ingredient");
 		System.out.println();
 
-
 		while (true) {
-			System.out.print("Enter Command: ");
+			System.out.println("Enter command: ");
 			String command = scanner.nextLine().trim().toLowerCase();
 
 			if (command.equals("stop")) {
 				break;
 			} else if (command.equals("list")) {
-
+				listRecipes(recipes);
 			}
+		}
+
+	}
+
+	private static void listRecipes(List<Recipe> recipes) {
+		System.out.println("Recipes:");
+
+		for (Recipe recipe : recipes) {
+			System.out.println(recipe);
 		}
 	}
 }
