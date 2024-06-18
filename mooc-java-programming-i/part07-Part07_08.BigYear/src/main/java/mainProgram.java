@@ -18,7 +18,6 @@ public class mainProgram {
 
 		mainProgram program = new mainProgram();
 		program.userInterface();
-
 	}
 
 	public void userInterface() {
@@ -26,19 +25,19 @@ public class mainProgram {
 			System.out.print("? ");
 			String command = scanner.nextLine().trim();
 			switch (command) {
-				case "add":
+				case "Add":
 					addBird();
 					break;
-				case "observation":
+				case "Observation":
 					addObservation();
 					break;
-				case "all":
+				case "All":
 					printAllBirds();
 					break;
-				case "one":
+				case "One":
 					printOneBird();
 					break;
-				case "quit":
+				case "Quit":
 					return;
 				default:
 					System.out.println("Incorrect input!");
