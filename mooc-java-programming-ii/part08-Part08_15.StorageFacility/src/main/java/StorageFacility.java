@@ -35,7 +35,7 @@ public class StorageFacility {
 		ArrayList<String> storageUnitsWithItems = new ArrayList<>();
 
 		for (String unit : facility.keySet()) {
-			if (facility.get(unit).size() > 0) {
+			if (!facility.get(unit).isEmpty()) {
 				storageUnitsWithItems.add(unit);
 			}
 		}
