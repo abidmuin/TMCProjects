@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class VehicleRegistry {
 	private final HashMap<LicensePlate, String> vehicleOwners;
@@ -32,5 +34,21 @@ public class VehicleRegistry {
 		}
 
 		return false;
+	}
+
+	public void printLicensePlates() {
+		for (LicensePlate licensePlate : vehicleOwners.keySet()) {
+			System.out.println(licensePlate);
+		}
+	}
+
+	public void printOwners() {
+		List<String> owners = new ArrayList<>();
+		for (String owner : vehicleOwners.values()) {
+			if (!owners.contains(owner)) {
+				owners.add(owner);
+				System.out.println(owner);
+			}
+		}
 	}
 }
