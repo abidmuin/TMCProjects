@@ -24,4 +24,23 @@ public class StorageFacility {
 
 		return new ArrayList<>();
 	}
+
+	public void remove(String storageUnit, String item) {
+		if (facility.containsKey(storageUnit)) {
+			facility.get(storageUnit).remove(item);
+		}
+	}
+
+	public ArrayList<String> storageUnits() {
+		ArrayList<String> storageUnitsWithItems = new ArrayList<>();
+
+		for (String unit : facility.keySet()) {
+			if (facility.get(unit).size() > 0) {
+				storageUnitsWithItems.add(unit);
+			}
+		}
+
+		return storageUnitsWithItems;
+	}
+
 }
