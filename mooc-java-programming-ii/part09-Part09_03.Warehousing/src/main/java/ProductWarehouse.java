@@ -4,7 +4,7 @@ public class ProductWarehouse extends Warehouse {
 
 	public ProductWarehouse(String productName, double capacity) {
 		super(capacity);
-		this.productName = productName;
+		setName(productName);
 	}
 
 	public String getName() {
