@@ -1,5 +1,5 @@
 public class ProductWarehouse extends Warehouse {
-	private final String productName;
+	private String productName;
 
 
 	public ProductWarehouse(String productName, double capacity) {
@@ -9,5 +9,14 @@ public class ProductWarehouse extends Warehouse {
 
 	public String getName() {
 		return productName;
+	}
+
+	public void setName(String newName) {
+		this.productName = newName;
+	}
+
+	@Override
+	public String toString() {
+		return productName + ": " + super.toString();
 	}
 }
