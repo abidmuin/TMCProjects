@@ -1,5 +1,4 @@
 public class Warehouse {
-
 	private final double capacity;
 	private double balance;
 

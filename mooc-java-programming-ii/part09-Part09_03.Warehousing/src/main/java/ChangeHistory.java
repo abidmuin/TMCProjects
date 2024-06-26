@@ -2,50 +2,50 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class ChangeHistory {
-	private final ArrayList<Double> changeHistory;
+	private final ArrayList<Double> history;
 
 	public ChangeHistory() {
-		this.changeHistory = new ArrayList<>();
+		this.history = new ArrayList<>();
 	}
 
 	public void add(double status) {
-		this.changeHistory.add(status);
+		this.history.add(status);
 	}
 
 	public void clear() {
-		this.changeHistory.clear();
+		this.history.clear();
 	}
 
 	@Override
 	public String toString() {
-		return this.changeHistory.toString();
+		return this.history.toString();
 	}
 
 	public double maxValue() {
-		if (this.changeHistory.isEmpty()) {
-			return 0;
+		if (this.history.isEmpty()) {
+			return 0.0;
 		}
 
-		return Collections.max(this.changeHistory);
+		return Collections.max(this.history);
 	}
 
 	public double minValue() {
-		if (this.changeHistory.isEmpty()) {
-			return 0;
+		if (this.history.isEmpty()) {
+			return 0.0;
 		}
 
-		return Collections.min(this.changeHistory);
+		return Collections.min(this.history);
 	}
 
 	public double average() {
-		if (this.changeHistory.isEmpty()) {
-			return 0;
+		if (this.history.isEmpty()) {
+			return 0.0;
 		}
 
-		int elements = this.changeHistory.size();
+		int elements = this.history.size();
 		Double sum = 0.0;
 
-		for (Double value : this.changeHistory) {
+		for (Double value : this.history) {
 			sum += value;
 		}
 
