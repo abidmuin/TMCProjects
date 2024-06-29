@@ -9,6 +9,12 @@ public class Item {
 		this.unitPrice = unitPrice;
 	}
 
+	public Item(String product, int unitPrice) {
+		this.product = product;
+		this.unitPrice = unitPrice;
+		this.quantity = 1;
+	}
+
 	public int price() {
 		return quantity * unitPrice;
 	}
