@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Store {
 
-	private Warehouse warehouse;
-	private Scanner scanner;
+	private final Warehouse warehouse;
+	private final Scanner scanner;
 
 	public Store(Warehouse warehouse, Scanner scanner) {
 		this.warehouse = warehouse;
@@ -30,6 +30,11 @@ public class Store {
 			// Add code here that adds the product to the cart,
 			// If there is any in the warehouse, and reduces the stock in the warehouse
 			// Don't touch any of the other code!
+
+			if (warehouse.stock(product) > 0) {
+				warehouse.take(product);
+				cart.add(product, warehouse.price(product));
+			}
 		}
 
 		System.out.println("your shoppingcart contents:");
