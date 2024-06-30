@@ -10,21 +10,6 @@ public class Dog extends Animal implements NoiseCapable {
 	}
 
 	@Override
-	public void eat() {
-		System.out.println(super.getName() + " eats");
-	}
-
-	@Override
-	public void sleep() {
-		System.out.println(super.getName() + " sleeps");
-	}
-
-	@Override
-	public String getName() {
-		return this.name;
-	}
-
-	@Override
 	public void makeNoise() {
 		System.out.println(super.getName() + " barks");
 	}

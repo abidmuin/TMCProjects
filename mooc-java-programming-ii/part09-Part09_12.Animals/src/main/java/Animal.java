@@ -5,9 +5,13 @@ public abstract class Animal {
 		this.name = name;
 	}
 
-	public abstract void eat();
+	public void eat() {
+		System.out.println(name + " eats");
+	}
 
-	public abstract void sleep();
+	public void sleep() {
+		System.out.println(name + " sleeps");
+	}
 
 	public String getName() {
 		return name;
