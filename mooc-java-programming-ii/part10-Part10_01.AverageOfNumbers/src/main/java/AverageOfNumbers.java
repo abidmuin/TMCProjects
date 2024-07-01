@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.OptionalDouble;
 import java.util.Scanner;
 
 public class AverageOfNumbers {
@@ -6,24 +9,23 @@ public class AverageOfNumbers {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Input numbers, type \"end\" to stop.");
 
-		int counter = 0;
-		int sum = 0;
-		double average;
+		List<Integer> numbers = new ArrayList<>();
 
 		while (true) {
 			String input = scanner.nextLine();
 
 			if (input.equals("end")) {
-				average = (double) sum / counter;
 				break;
-			} else {
-				int number = Integer.parseInt(input);
-				sum += number;
-				counter++;
 			}
 
+			numbers.add(Integer.parseInt(input));
 		}
 
-		System.out.println("average of the numbers: " + average);
+		OptionalDouble average;
+		average = numbers.stream().mapToDouble(x -> x).average();
+
+		if (average.isPresent()) {
+			System.out.println("average of the numbers: " + average.getAsDouble());
+		}
 	}
 }
