@@ -1,25 +1,29 @@
+public class Human implements Comparable<Human> {
 
-public class Human {
+	private final int wage;
+	private final String name;
 
-    private int wage;
-    private String name;
+	public Human(String name, int wage) {
+		this.name = name;
+		this.wage = wage;
+	}
 
-    public Human(String name, int wage) {
-        this.name = name;
-        this.wage = wage;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getName() {
-        return name;
-    }
-
-    public int getWage() {
-        return wage;
-    }
+	public int getWage() {
+		return wage;
+	}
 
 
-    @Override
-    public String toString() {
-        return name + " " + wage;
-    }
+	@Override
+	public String toString() {
+		return name + " " + wage;
+	}
+
+	@Override
+	public int compareTo(Human another) {
+		return Integer.compare(another.wage, this.wage);
+	}
 }
