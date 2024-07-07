@@ -1,41 +1,49 @@
+public class Card implements Comparable<Card> {
 
+	private final int value;
+	private final Suit suit;
 
-public class Card {
+	public Card(int value, Suit suit) {
+		if (value < 2 || value > 14) {
+			throw new IllegalArgumentException("Card value must be in range 2...14.");
+		}
 
-    private int value;
-    private Suit suit;
+		this.value = value;
+		this.suit = suit;
+	}
 
-    public Card(int value, Suit suit) {
-        if (value < 2 || value > 14) {
-            throw new IllegalArgumentException("Card value must be in range 2...14.");
-        }
+	@Override
+	public String toString() {
+		String cardValue = "" + value;
+		if (value == 11) {
+			cardValue = "J";
+		} else if (value == 12) {
+			cardValue = "Q";
+		} else if (value == 13) {
+			cardValue = "K";
+		} else if (value == 14) {
+			cardValue = "A";
+		}
 
-        this.value = value;
-        this.suit = suit;
-    }
+		return suit + " " + cardValue;
+	}
 
-    @Override
-    public String toString() {
-        String cardValue = "" + value;
-        if(value == 11) {
-            cardValue = "J";
-        } else if (value == 12) {
-            cardValue = "Q";
-        } else if (value == 13) {
-            cardValue = "K";
-        } else if (value == 14) {
-            cardValue = "A";
-        }
-        
-        return suit + " " + cardValue;
-    }
+	public int getValue() {
+		return value;
+	}
 
-    public int getValue() {
-        return value;
-    }
+	public Suit getSuit() {
+		return suit;
+	}
 
-    public Suit getSuit() {
-        return suit;
-    }
+	@Override
+	public int compareTo(Card other) {
+		int valueComparison = Integer.compare(this.value, other.value);
 
+		if (valueComparison == 0) {
+			return this.suit.compareTo(other.suit);
+		}
+
+		return valueComparison;
+	}
 }

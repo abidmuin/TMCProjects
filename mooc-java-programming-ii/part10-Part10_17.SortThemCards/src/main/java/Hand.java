@@ -22,9 +22,25 @@ public class Hand implements Comparable<Hand> {
 		cards.sort(Comparator.comparing(Card::getValue).thenComparing(Card::getSuit));
 	}
 
+	private int calculateTotalValue() {
+		int totalValue = 0;
+
+		for (Card card : cards) {
+			totalValue += card.getValue();
+		}
+
+		return totalValue;
+	}
+
 	@Override
 	public int compareTo(Hand other) {
+		int thisHandValue = calculateTotalValue();
+		int otherHandValue = other.calculateTotalValue();
 
-		return 0;
+		return Integer.compare(thisHandValue, otherHandValue);
+	}
+
+	public void sortBySuit() {
+		cards.sort(Comparator.comparing(Card::getSuit));
 	}
 }
