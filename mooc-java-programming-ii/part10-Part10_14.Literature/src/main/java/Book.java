@@ -14,4 +14,9 @@ public class Book {
 	public int getAge() {
 		return age;
 	}
+
+	@Override
+	public String toString() {
+		return name + " (recommended for " + age + "year-olds or older";
+	}
 }
