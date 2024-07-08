@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Hand implements Comparable<Hand> {
@@ -41,6 +42,6 @@ public class Hand implements Comparable<Hand> {
 	}
 
 	public void sortBySuit() {
-		cards.sort(Comparator.comparing(Card::getSuit));
+		Collections.sort(cards, new BySuitInValueOrder());
 	}
 }
