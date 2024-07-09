@@ -39,16 +39,16 @@ public class TextUI {
 			String answer = scanner.nextLine();
 
 			if (answer.equals("1")) {
-				addAirplane(scanner);
+				addAirplane();
 			} else if (answer.equals("2")) {
-				addFlight(scanner);
+				addFlight();
 			} else if (answer.equals("x")) {
 				break;
 			}
 		}
 	}
 
-	private void addAirplane(Scanner scanner) {
+	private void addAirplane() {
 		System.out.print("Give the airplane id: ");
 		String id = this.scanner.nextLine();
 		System.out.print("Give the airplane capacity: ");
@@ -57,9 +57,9 @@ public class TextUI {
 		this.flightControl.addAirplane(id, capacity);
 	}
 
-	private void addFlight(Scanner scanner) {
+	private void addFlight() {
 		System.out.print("Give the airplane id: ");
-		Airplane airplane = askForAirplane(this.scanner);
+		Airplane airplane = askForAirplane();
 		System.out.print("Give the departure airport id: ");
 		String departureID = this.scanner.nextLine();
 		System.out.print("Give the target airport id: ");
@@ -109,12 +109,12 @@ public class TextUI {
 
 	private void printAirplaneDetails() {
 		System.out.print("Give the airplane id: ");
-		Airplane plane = askForAirplane(scanner);
+		Airplane plane = askForAirplane();
 		System.out.println(plane);
 		System.out.println();
 	}
 
-	private Airplane askForAirplane(Scanner scanner) {
+	private Airplane askForAirplane() {
 		Airplane airplane = null;
 		while (airplane == null) {
 			String id = this.scanner.nextLine();
