@@ -11,8 +11,8 @@ public class ApplicationLogic {
 
 	public void execute(int times) {
 		while (times > 0) {
-			ui.update();
 			System.out.println("Application logic is working");
+			ui.update();
 			times--;
 		}
 	}
