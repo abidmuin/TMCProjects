@@ -6,11 +6,11 @@ import java.util.OptionalDouble;
 
 public class AverageSensor implements Sensor {
 	private final List<Sensor> sensors;
-	private boolean isOn;
+	private final List<Integer> averageReading;
 
 	public AverageSensor() {
 		this.sensors = new ArrayList<>();
-		isOn = false;
+		this.averageReading = new ArrayList<>();
 	}
 
 	public void addSensor(Sensor toAdd) {
@@ -19,42 +19,55 @@ public class AverageSensor implements Sensor {
 
 	@Override
 	public boolean isOn() {
+		boolean isOn = false;
+
+		for (Sensor sensor : sensors) {
+			if (sensor.isOn()) {
+				isOn = true;
+			}
+
+			break;
+		}
+
 		return isOn;
 	}
 
 	@Override
 	public void setOn() {
 		for (Sensor sensor : sensors) {
-			isOn = sensor.isOn();
+			sensor.setOn();
 		}
 	}
 
 	@Override
 	public void setOff() {
 		for (Sensor sensor : sensors) {
-			if (sensor.isOn()) {
-				sensor.setOff();
-				isOn = false;
-			}
+			sensor.setOff();
 		}
 	}
 
 	@Override
 	public int read() {
 		try {
-			if (isOn) {
+			if (isOn() && !sensors.isEmpty()) {
 				OptionalDouble average = sensors.stream().mapToInt(Sensor::read).average();
 
 				if (average.isPresent()) {
-					return Integer.parseInt(String.valueOf(average.getAsDouble()));
+					int reading = (int) average.getAsDouble();
+					averageReading.add(reading);
+					return reading;
 				}
 			}
 
-			throw new IllegalStateException("Sensor is not on");
+			throw new IllegalStateException("Error getting average of sensors");
 		} catch (Exception e) {
 			System.out.println("Sensor is not on" + e.getMessage());
 		}
 
 		return 0;
+	}
+
+	public List<Integer> readings() {
+		return averageReading;
 	}
 }
