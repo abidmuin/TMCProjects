@@ -26,14 +26,44 @@ public class List<Type> {
 	}
 
 	public boolean contains(Type value) {
+		return indexOfValue(value) >= 0;
+	}
+
+	public void remove(Type value) {
+		int indexOfValue = indexOfValue(value);
+		if (indexOfValue < 0) {
+			return;
+		}
+
+		moveToTheLeft(indexOfValue);
+		this.firstFreeIndex--;
+	}
+
+	public int indexOfValue(Type value) {
 		for (int i = 0; i < this.firstFreeIndex; i++) {
 			if (this.values[i].equals(value)) {
-				return true;
+				return i;
 			}
 		}
 
-		return false;
+		return -1;
 	}
 
+	private void moveToTheLeft(int fromIndex) {
+		for (int i = fromIndex; i < this.firstFreeIndex - 1; i++) {
+			this.values[i] = this.values[i + 1];
+		}
+	}
 
+	public Type value(int index) {
+		if (index < 0 || index >= this.firstFreeIndex) {
+			throw new ArrayIndexOutOfBoundsException("Index " + index + " outside of [0, " + this.firstFreeIndex + "]");
+		}
+
+		return this.values[index];
+	}
+
+	public int size() {
+		return this.firstFreeIndex;
+	}
 }
