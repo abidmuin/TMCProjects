@@ -1,115 +1,146 @@
-
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class MagicSquare {
 
-    private int[][] square;
+	private int[][] square;
 
-    // ready constructor
-    public MagicSquare(int size) {
-        if (size < 2) {
-            size = 2;
-        }
+	// ready constructor
+	public MagicSquare(int size) {
+		if (size < 2) {
+			size = 2;
+		}
 
-        this.square = new int[size][size];
-    }
+		this.square = new int[size][size];
+	}
 
-    // implement these three methods
-    public ArrayList<Integer> sumsOfRows() {
-        return new ArrayList<>();
-    }
+	// implement these three methods
+	public ArrayList<Integer> sumsOfRows() {
+		ArrayList<Integer> result = new ArrayList<>();
 
-    public ArrayList<Integer> sumsOfColumns() {
-        return new ArrayList<>();
-    }
+		for (int[] rows : square) {
+			int sum = 0;
+			for (int value : rows) {
+				sum += value;
+			}
+			result.add(sum);
+		}
 
-    public ArrayList<Integer> sumsOfDiagonals() {
-        return new ArrayList<>();
-    }
+		return result;
+	}
 
-    // ready-made helper methods -- don't touch these
-    public boolean isMagicSquare() {
-        return sumsAreSame() && allNumbersDifferent();
-    }
+	public ArrayList<Integer> sumsOfColumns() {
+		ArrayList<Integer> result = new ArrayList<>();
 
-    public ArrayList<Integer> giveAllNumbers() {
-        ArrayList<Integer> numbers = new ArrayList<>();
-        for (int row = 0; row < square.length; row++) {
-            for (int col = 0; col < square[row].length; col++) {
-                numbers.add(square[row][col]);
-            }
-        }
+		for (int i = 0; i < square.length; i++) {
+			int sum = 0;
+			for (int j = 0; j < square.length; j++) {
+				sum += square[j][i];
+			}
+			result.add(sum);
+		}
 
-        return numbers;
-    }
+		return result;
+	}
 
-    public boolean allNumbersDifferent() {
-        ArrayList<Integer> numbers = giveAllNumbers();
+	public ArrayList<Integer> sumsOfDiagonals() {
+		ArrayList<Integer> result = new ArrayList<>();
+		int leftDiagonal = 0;
+		int rightDiagonal = 0;
 
-        Collections.sort(numbers);
-        for (int i = 1; i < numbers.size(); i++) {
-            if (numbers.get(i - 1) == numbers.get(i)) {
-                return false;
-            }
-        }
+		for (int i = 0; i < square.length; i++) {
+			leftDiagonal += square[i][i];
+			rightDiagonal += square[i][square.length - i - 1];
+		}
 
-        return true;
-    }
+		result.add(leftDiagonal);
+		result.add(rightDiagonal);
 
-    public boolean sumsAreSame() {
-        ArrayList<Integer> sums = new ArrayList<>();
-        sums.addAll(sumsOfRows());
-        sums.addAll(sumsOfColumns());
-        sums.addAll(sumsOfDiagonals());
+		return result;
+	}
 
-        if (sums.size() < 3) {
-            return false;
-        }
+	// ready-made helper methods -- don't touch these
+	public boolean isMagicSquare() {
+		return sumsAreSame() && allNumbersDifferent();
+	}
 
-        for (int i = 1; i < sums.size(); i++) {
-            if (sums.get(i - 1) != sums.get(i)) {
-                return false;
-            }
-        }
+	public ArrayList<Integer> giveAllNumbers() {
+		ArrayList<Integer> numbers = new ArrayList<>();
+		for (int row = 0; row < square.length; row++) {
+			for (int col = 0; col < square[row].length; col++) {
+				numbers.add(square[row][col]);
+			}
+		}
 
-        return true;
-    }
+		return numbers;
+	}
 
-    public int readValue(int x, int y) {
-        if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
-            return - 1;
-        }
+	public boolean allNumbersDifferent() {
+		ArrayList<Integer> numbers = giveAllNumbers();
 
-        return this.square[y][x];
-    }
+		Collections.sort(numbers);
+		for (int i = 1; i < numbers.size(); i++) {
+			if (numbers.get(i - 1) == numbers.get(i)) {
+				return false;
+			}
+		}
 
-    public void placeValue(int x, int y, int value) {
-        if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
-            return;
-        }
+		return true;
+	}
 
-        this.square[y][x] = value;
-    }
+	public boolean sumsAreSame() {
+		ArrayList<Integer> sums = new ArrayList<>();
+		sums.addAll(sumsOfRows());
+		sums.addAll(sumsOfColumns());
+		sums.addAll(sumsOfDiagonals());
 
-    public int getWidth() {
-        return this.square.length;
-    }
+		if (sums.size() < 3) {
+			return false;
+		}
 
-    public int getHeight() {
-        return this.square.length;
-    }
+		for (int i = 1; i < sums.size(); i++) {
+			if (sums.get(i - 1) != sums.get(i)) {
+				return false;
+			}
+		}
 
-    @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        for (int row = 0; row < square.length; row++) {
-            for (int col = 0; col < square[row].length; col++) {
-                result.append(square[row][col]).append("\t");
-            }
+		return true;
+	}
 
-            result.append("\n");
-        }
+	public int readValue(int x, int y) {
+		if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
+			return -1;
+		}
+
+		return this.square[y][x];
+	}
+
+	public void placeValue(int x, int y, int value) {
+		if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
+			return;
+		}
+
+		this.square[y][x] = value;
+	}
+
+	public int getWidth() {
+		return this.square.length;
+	}
+
+	public int getHeight() {
+		return this.square.length;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		for (int row = 0; row < square.length; row++) {
+			for (int col = 0; col < square[row].length; col++) {
+				result.append(square[row][col]).append("\t");
+			}
+
+			result.append("\n");
+		}
 
         return result.toString();
     }
